@@ -16,8 +16,13 @@ COLAB_PROCESSING_DIR = f"{COLAB_DRIVE_BASE}/processing"
 # Active layout keys (see converters/__init__.py LAYOUT_LABELS for display names)
 LAYOUTS: tuple[str, ...] = ("usual_rate", "new_grid")
 
-# Old input/processing folder names still scanned if present
+# Legacy folder names still scanned on Drive/older clones (optional)
 LEGACY_INPUT_FOLDERS: dict[str, tuple[str, ...]] = {
+    "usual_rate": ("layout1", "layout2", "layout4"),
+    "new_grid": ("layout3",),
+}
+
+LEGACY_PROCESSING_FOLDERS: dict[str, tuple[str, ...]] = {
     "usual_rate": ("layout1", "layout2", "layout4"),
     "new_grid": ("layout3",),
 }
