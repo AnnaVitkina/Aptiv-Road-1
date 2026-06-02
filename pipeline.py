@@ -13,7 +13,7 @@ Local:
 
 Colab (recommended):
     import sys
-    sys.path.insert(0, "/content/Aptiv_Road")
+    sys.path.insert(0, "/content/Aptiv-Road-1")
     from pipeline import setup_environment, run_interactive
     setup_environment()
     run_interactive()
@@ -42,7 +42,7 @@ def _bootstrap_project_path() -> Path | None:
         pass
     candidates.extend(
         [
-            Path("/content/Aptiv-Road-1"),
+            Path("/content/Aptiv_Road"),
             Path("/content/drive/MyDrive/Aptiv_Road"),
             Path.cwd(),
         ]
@@ -193,7 +193,7 @@ def find_converted_files(layouts: list[str] | None = None) -> list[Path]:
         folders = [config.PROCESSING_DIR / layout_key]
         folders.extend(
             config.PROCESSING_DIR / legacy
-            for legacy in config.LEGACY_INPUT_FOLDERS.get(layout_key, ())
+            for legacy in config.LEGACY_PROCESSING_FOLDERS.get(layout_key, ())
             if (config.PROCESSING_DIR / legacy).is_dir()
         )
         for folder in folders:
